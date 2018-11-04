@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="popup.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+
+
+
+</head>
+<body id="body" onclick="check(event)">
+
+	<div class="bg">
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="#">PREG CARE</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" id="popup" onclick="div_show()">CONTACT US</a>
+			      </li>
+			      <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PREGNANCY</a>
+
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="getpreg.html">Getting Pregnant</a>
+                  <a class="dropdown-item" href="two.html">Stages Of Pregnancy</a>
+                  <a class="dropdown-item" href="nutrition.html">Health and Nutrition</a>
+                  <a class="dropdown-item" href="birth.html">Giving Birth</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="six.html">POSTPARTUM</a>
+                </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="product.html">PRODUCTS</a>
+		      </li>
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		  </div>
+		</nav>
+
+
+			<div class="card text-center" style="width: 18rem; margin-top: 50px;">
+				<div class="card-body">
+					    <h5 class="card-title">Inspiration</h5>
+					    <p class="card-text" id="quote"> "A mother does not become pregnant in order to provide employment to medical people. Giving birth is an ecstatic jubilant adventure not available to males. It is a woman’s crowning creative experience of a lifetime."</p>
+					    <input type="button" class="btn btn-primary" value="Next Quote" id="nextQuote">
+				  </div>
+				 </div>
+	</div>
+
+	<div id="abc">
+			<!-- Popup Div Starts Here -->
+			<div id="popupContact">
+			<!-- Contact Us Form -->
+			<form action="#" id="form" method="post" name="form">
+			<img id="close" src="close.png">
+			<h2>Contact Us</h2>
+			<hr>
+			<input id="name" name="name" placeholder="Name" type="text">
+			<input id="email" name="email" placeholder="Email" type="text">
+			<textarea id="msg" name="message" placeholder="Message"></textarea>
+			<a href="javascript:%20check_empty()" id="submit">Send</a>
+			</form>
+			</div>
+		<!-- Popup Div Ends Here -->
+		</div>
+
+
+	<section class="container pregnancy text-center" style="margin-top: 50px">
+
+		<h1>PREGNANCY</h1>
+
+		<div class="row">
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+				<figure class="figure">
+					<img src="getPreg.jpg" class="figure-img img-fluid rounded-circle" height="455px" width="455px">
+					<figcaption>
+						<h3><a href="getpreg.html" class="text-dark">GETTING PREGNANT</a></h3>
+						<p>Whether you are trying to conceive, thinking about trying, or having difficulty getting pregnant
+							you will find what you need here. Everything you have to know about getting pregnant....
+						 </p>
+
+					</figcaption>
+				</figure>
+
+			</div>
+
+
+			<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+				<figure class="figure">
+					<img src="pregnant.jpg" class="figure-img img-fluid rounded-circle" height="455" width="455">
+					<figcaption>
+						<h3><a href="two.html" class="text-dark">STAGES OF PREGNANCY</a></h3>
+						<p>Pregnancy can be different from woman to woman and even for the same mother from one pregnancy to the next.
+							A normal pregnancy usually lasts about 40 weeks, counting from the first day of a woman's last menstrual period,
+							which is two weeks...</p>
+
+					</figcaption>
+				</figure>
+
+			</div>
+
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+				 <figure class="figure">
+					<img src="eat.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+					<figcaption>
+						<h3><a href="nutrition.html" class="text-dark">NUTRITION AND HEALTH</a></h3>
+						<p>Eating well can help you have a healthy pregnancy and a healthy baby.This includes,
+						Not missing breakfast, Eating foods with fiber, Choosing healthy snacks, Taking prenatal vitamins,Limiting
+						caffeine and avoiding alcohol... </p>
+
+					</figcaption>
+				</figure>
+
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+				<figure class="figure">
+					<img src="birth.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+					<figcaption>
+						<h3><a href="birth.html" class="text-dark">GIVING BIRTH</a></h3>
+						<p>There are plenty of ways to ensure you have an easier labour and delivery,
+							and almost all of them start before your contractions do.....</p>
+
+					</figcaption>
+				</figure>
+
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+				<figure class="figure">
+					<img src="after.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+					<figcaption>
+						<h3><a href="six.html" class="text-dark">POSTPARTUM</a></h3>
+						<p>The postpartum period begins after the delivery of the baby and ends when the mother's
+						body has nearly returned to it's pre-pregant state.
+						This period involves the mother progressing througth many changes,both physically and emotionally, while learning..........</p>
+
+					</figcaption>
+				</figure>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<section class="product bg-light">
+		<div class="container text-center">
+			<h1>PRODUCTS</h1>
+			<p>We would recommend these products which are very good for a mom-to-be and babies</p>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+					<div class="card">
+						<img src="four.jpg" class="card-img img-fluid" >
+						<div class="card-body text-dark">
+							<h3 class="card-title">CLOTHINGS </h3>
+							<p class="card-text">Dresses and shoes</p>
+
+							<a href="product.html#Clothing" class="btn btn-primary">View</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+					<div class="card">
+						<img src="skin.png" class="card-img img-fluid" >
+						<div class="card-body text-dark">
+							<h3 class="card-title">BEAUTY CARE </h3>
+							<p class="card-text">Skin and Hair Products</p>
+
+							<a href="product.html#Beauty" class="btn btn-primary">View</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+					<div class="card">
+						<img src="body.jpg" class="card-img img-fluid" >
+						<div class="card-body text-dark">
+							<h3 class="card-title"> ACCESSORIES </h3>
+							<p class="card-text"> Comforters & Gadgets</p>
+
+							<a href="product.html#Gadgets" class="btn btn-primary">View</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</section>
+
+	<footer class="footer">
+
+		<div class="social text-center">
+			<img src="google.svg" alt="">
+			<img src="twitter.svg" alt="">
+			<img src="facebook.svg" alt="">
+			<img src="youtube.svg" alt="">
+			<img src="instagram.svg" alt="">
+			<img src="github.svg" alt="">
+		</div>
+
+		<h6 class="text-center"> Copyright &copy;2018, Design By Preg Care</h6>
+	</footer>
+
+
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="homepage.js"></script>
+
+	<script type="text/javascript" src="popup.js"></script>
+
+</body>
+</html>
