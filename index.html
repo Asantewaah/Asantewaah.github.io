@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juliet Asantewaa Sarpong · Data scientist and statistician</title>
+<meta name="description" content="Data scientist and statistician with 4+ years of industry experience and PhD research in causal inference at the University of Edinburgh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5FB; --ink:#1D1B4C; --muted:#5B5A7E; --rule:#DCDAEC;
+  --link:#2F45C9; --bar:#F2A900; --bar-ink:#1D1B4C; --band:#1D1B4C; --band-ink:#F6F5FB; --band-muted:#B9B7E0;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15142E; --ink:#EDECFA; --muted:#A7A5CC; --rule:#2E2C55;
+    --link:#9FAEFF; --band:#232150; --band-ink:#EDECFA; --band-muted:#B9B7E0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15142E; --ink:#EDECFA; --muted:#A7A5CC; --rule:#2E2C55;
+  --link:#9FAEFF; --band:#232150; --band-ink:#EDECFA; --band-muted:#B9B7E0;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17px/1.6 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--link);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--bar);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;margin:0;line-height:1.1}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* Hero: indigo band */
+.hero{background:var(--band);color:var(--band-ink);padding:72px 0 64px}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,8vw,5.2rem);letter-spacing:-.025em;line-height:.95}
+.hero h1 span{display:block}
+.hero .role{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:clamp(1.15rem,2.4vw,1.5rem);margin:22px 0 18px;max-width:30em}
+.hero .role mark{background:var(--bar);color:var(--bar-ink);padding:0 .25em;border-radius:3px}
+.hero p.intro{max-width:36em;color:var(--band-muted);margin:0 0 28px}
+.links{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
+.links a{display:inline-block;color:var(--band-ink);text-decoration:none;font-weight:700;border:2px solid var(--band-muted);padding:8px 16px;border-radius:999px}
+.links a:hover{background:var(--band-ink);color:var(--band)}
+.links a.primary{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
+
+/* Section rhythm */
+section{padding:64px 0;border-bottom:1px solid var(--rule)}
+section h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-.015em;margin-bottom:8px}
+.lede{color:var(--muted);max-width:40em;margin:0 0 32px}
+
+/* Signature: career as a forest plot */
+.plot{position:relative}
+.axis,.row{display:grid;grid-template-columns:190px 1fr;gap:16px;align-items:center}
+.row{padding:10px 0;border-top:1px dashed var(--rule)}
+.row .who{font-weight:700;line-height:1.25}
+.row .who small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.track{position:relative;height:22px;background:repeating-linear-gradient(90deg,transparent 0 calc(9.0909% - 1px),var(--rule) calc(9.0909% - 1px) 9.0909%)}
+.bar{position:absolute;top:5px;height:12px;background:var(--bar);border-radius:6px;transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
+.bar.ongoing{border-radius:6px 0 0 6px;background:linear-gradient(90deg,var(--bar) 70%,transparent)}
+.bar.study{background:var(--link)}
+.bar.study.ongoing{background:linear-gradient(90deg,var(--link) 70%,transparent)}
+.legend{display:flex;gap:20px;font-size:.85rem;color:var(--muted);margin:0 0 12px}
+.legend span::before{content:"";display:inline-block;width:18px;height:10px;border-radius:5px;margin-right:6px;vertical-align:0;background:var(--bar)}
+.legend span.s::before{background:var(--link)}
+.dot{position:absolute;top:3px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bar)}
+.axis .ticks{position:relative;height:20px;font-size:.8rem;color:var(--muted)}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.bar{animation:none}}
+
+/* Roles */
+.roles{display:grid;gap:40px;margin-top:48px}
+.role-item{display:grid;grid-template-columns:190px 1fr;gap:16px}
+.role-item .when{color:var(--muted);font-size:.9rem;padding-top:4px}
+.role-item h3{font-size:1.3rem;font-weight:700;margin-bottom:2px}
+.role-item .org{color:var(--muted);margin:0 0 10px}
+.role-item p,.role-item ul{margin:0 0 8px;max-width:38em}
+.role-item ul{padding-left:1.1em}
+.role-item li{margin-bottom:6px}
+
+/* Research */
+.work{display:grid;gap:36px}
+.work article{border-left:6px solid var(--bar);padding-left:20px;max-width:44em}
+.work h3{font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.work .meta{color:var(--muted);margin:0 0 8px;font-size:.93rem}
+.work p{margin:0}
+.tag{display:inline-block;font-family:"Atkinson Hyperlegible",sans-serif;font-size:.78rem;font-weight:700;border:1.5px solid currentColor;padding:1px 9px;border-radius:999px;margin-left:8px;vertical-align:3px;color:var(--link)}
+
+/* Toolkit + education */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px 36px;margin:0}
+.cols dt{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:4px}
+.cols dd{margin:0;color:var(--muted)}
+
+footer{padding:56px 0 64px}
+footer h2{font-weight:800;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;max-width:14em;margin-bottom:20px}
+footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:clamp(1.05rem,3vw,1.4rem);word-break:break-all}
+
+@media (max-width:720px){
+  .hero{padding:52px 0 44px}
+  section{padding:48px 0}
+  .axis,.row,.role-item{grid-template-columns:1fr;gap:6px}
+  .axis .spacer{display:none}
+  .roles{gap:32px}
+  .axis .ticks span.odd{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span>Juliet Asantewaa</span><span>Sarpong</span></h1>
+    <p class="role">Data scientist and statistician. I find out <mark>what actually drives results</mark>, not just what moves with them.</p>
+    <p class="intro">Four years turning messy, real-world data into decisions for Microsoft, Unilever, P&amp;G and BIC, from pricing and market analysis to audience and media strategy. Now a PhD researcher in Statistics at the University of Edinburgh, specialising in causal inference, and bringing that rigour to customers, campaigns and clinical data alike.</p>
+    <ul class="links">
+      <li><a class="primary" href="https://drive.google.com/file/d/19Udj4vbUPOkcEvWlCE50g-h4baKusWpa/view?usp=drivesdk" target="_blank" rel="noopener">View my CV</a></li>
+      <li><a href="mailto:asantewaahsarpong@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/juliet-asantewaa-sarpong" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/Asantewaah" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="experience" aria-labelledby="h-exp">
+    <h2 id="h-exp">Experience</h2>
+    <p class="lede">My career, plotted the way a statistician would: each bar is a role or degree, from start to finish.</p>
+
+    <p class="legend" aria-hidden="true"><span>Work</span><span class="s">Study</span></p>
+    <div class="plot" role="img" aria-label="Timeline from 2016 to 2026: BSc Mathematics at KNUST 2016 to 2020; Dentsu internship 2019; Carat 2020 to 2021; Maverick Research 2021 to 2022; Polymorph Labs 2022 to 2023; MSc at AIMS 2023 to 2024; PhD Statistics at the University of Edinburgh from September 2024; tutor from 2025 and PGR ambassador from late 2025, all ongoing.">
+      <div class="row"><div class="who">BSc Mathematics<small>KNUST</small></div><div class="track"><span class="bar study" style="left:6.4%;width:34.5%;animation-delay:0.00s"></span></div></div>
+      <div class="row"><div class="who">Dentsu<small>Analyst intern</small></div><div class="track"><span class="dot" style="left:31.8%"></span></div></div>
+      <div class="row"><div class="who">Carat<small>Data analyst</small></div><div class="track"><span class="bar " style="left:43.2%;width:9.8%;animation-delay:0.16s"></span></div></div>
+      <div class="row"><div class="who">Maverick Research<small>Data scientist</small></div><div class="track"><span class="bar " style="left:53.0%;width:6.8%;animation-delay:0.24s"></span></div></div>
+      <div class="row"><div class="who">Polymorph Labs<small>Project supervisor</small></div><div class="track"><span class="bar " style="left:60.6%;width:5.3%;animation-delay:0.32s"></span></div></div>
+      <div class="row"><div class="who">MSc Mathematical Sciences<small>AIMS</small></div><div class="track"><span class="bar study" style="left:69.1%;width:9.1%;animation-delay:0.40s"></span></div></div>
+      <div class="row"><div class="who">PhD Statistics<small>University of Edinburgh</small></div><div class="track"><span class="bar study ongoing" style="left:78.8%;width:21.2%;animation-delay:0.48s"></span></div></div>
+      <div class="row"><div class="who">Tutor<small>University of Edinburgh</small></div><div class="track"><span class="bar ongoing" style="left:81.8%;width:18.2%;animation-delay:0.56s"></span></div></div>
+      <div class="row"><div class="who">PGR ambassador<small>University of Edinburgh</small></div><div class="track"><span class="bar ongoing" style="left:89.4%;width:10.6%;animation-delay:0.64s"></span></div></div>
+      <div class="axis"><div class="spacer"></div><div class="ticks">
+        <span style="left:0.00%">2016</span><span class="odd" style="left:9.09%">2017</span><span style="left:18.18%">2018</span><span class="odd" style="left:27.27%">2019</span><span style="left:36.36%">2020</span><span class="odd" style="left:45.45%">2021</span><span style="left:54.55%">2022</span><span class="odd" style="left:63.64%">2023</span><span style="left:72.73%">2024</span><span class="odd" style="left:81.82%">2025</span><span style="left:90.91%">2026</span>
+      </div></div>
+    </div>
+
+    <div class="roles">
+      <div class="role-item"><div class="when">2025 – present</div><div>
+        <h3>Tutor, Mathematics &amp; Statistics</h3><p class="org">University of Edinburgh</p>
+        <p>Tutorials and academic support for undergraduate and postgraduate students. Also a Postgraduate Research Ambassador since late 2025.</p></div></div>
+      <div class="role-item"><div class="when">2022 – 2023</div><div>
+        <h3>Project Supervisor</h3><p class="org">Polymorph Labs</p>
+        <p>Built analytics systems to identify learning gaps and automate performance reporting, improving student engagement and comprehension by about 30%.</p></div></div>
+      <div class="role-item"><div class="when">2021 – 2022</div><div>
+        <h3>Data Scientist</h3><p class="org">Maverick Research</p>
+        <p>Market research for consumer goods brands including BIC, Unilever and Fanmilk across 15+ cities.</p>
+        <ul>
+          <li>Cleaned and validated field-agent retail data, improving accuracy by 20%, and designed the SQL database behind it.</li>
+          <li>Grouped products into categories by use and tracked pricing, supply, demand and distribution within each client's category, such as stationery for BIC.</li>
+          <li>Identified the regions with most growth potential to shape where campaigns ran and what they said, contributing to over 25% sales growth.</li>
+        </ul></div></div>
+      <div class="role-item"><div class="when">2020 – 2021</div><div>
+        <h3>Data Analyst &amp; Media Executive</h3><p class="org">Carat (Dentsu)</p>
+        <p>Media and audience analytics for Microsoft, P&amp;G, Beiersdorf and Betway.</p>
+        <ul>
+          <li>Ran demographic and audience analysis to match segments to each product, and presented findings in client strategy meetings to choose media channels.</li>
+          <li>Built automated media-planning templates that cut operational workload by 20%, and optimised campaigns that saved up to 30% in cost.</li>
+        </ul></div></div>
+    </div>
+  </section>
+
+  <section id="research" aria-labelledby="h-research">
+    <h2 id="h-research">Research</h2>
+    <p class="lede">Methods for separating cause from correlation when you can't run an experiment.</p>
+    <div class="work">
+      <article>
+        <h3>C-TMLE for causal inference in high-dimensional genomic data</h3>
+        <p class="meta">PhD thesis, University of Edinburgh</p>
+        <p>Estimating the causal effects of genetic variants on disease from observational UK Biobank data, including settings where data are missing in non-random ways. The focus is on doubly robust, targeted estimators that stay reliable when models are misspecified.</p>
+      </article>
+      <article>
+        <h3>Targeted Learning in Genomics and Molecular Biomedicine<span class="tag">Under review</span></h3>
+        <p class="meta">Co-author, International Journal of Biostatistics</p>
+        <p>Contributed the C-TMLE implementation, integrating it into the open-source Julia package TMLE.jl.</p>
+      </article>
+      <article>
+        <h3>Benchmarking causal machine learning estimators</h3>
+        <p class="meta">Simulation study in R on the Eddie HPC cluster</p>
+        <p>A large-scale comparison of TMLE, C-TMLE variants and scalable C-TMLE against GLM and GLMnet baselines under correctly specified and misspecified models, with cross-fitted nuisance models and jackknife inference chosen for its coverage.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="h-skills">
+    <h2 id="h-skills">Toolkit</h2>
+    <dl class="cols" style="margin-top:24px">
+      <div><dt>Methods</dt><dd>Causal inference, statistical modelling, machine learning, market and audience analysis</dd></div>
+      <div><dt>Languages</dt><dd>R, Python, Julia, SQL</dd></div>
+      <div><dt>Visualisation</dt><dd>Tableau, Power BI, Looker</dd></div>
+      <div><dt>Data &amp; infrastructure</dt><dd>Data cleaning and validation, SQL database design, Git, HPC, cloud platforms</dd></div>
+    </dl>
+  </section>
+
+  <section id="education" aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <dl class="cols" style="margin-top:24px">
+      <div><dt>PhD Statistics</dt><dd>University of Edinburgh, September 2024 – present. School of Mathematics funding package.</dd></div>
+      <div><dt>MSc Mathematical Sciences</dt><dd>African Institute for Mathematical Sciences, 2023 – 2024. Bending Spoons Scholar.</dd></div>
+      <div><dt>BSc Mathematics, First Class</dt><dd>Kwame Nkrumah University of Science and Technology, 2016 – 2020. Ato-Dadzie Foundation Scholar.</dd></div>
+    </dl>
+  </section>
+
+  <section id="outside" aria-labelledby="h-out">
+    <h2 id="h-out">Outside work</h2>
+    <p class="lede" style="margin-bottom:0">I'm usually at a table somewhere: playing tabletop RPGs like the Cosmere RPG and City of Mist, or working through a stack of board games. The rest of the time I'm reading, comic books very much included, and I review most of what I read on Goodreads.</p>
+  </section>
+
+  <footer>
+    <h2>Open to senior data science and analytics roles across industries.</h2>
+    <a class="mail" href="mailto:asantewaahsarpong@gmail.com">asantewaahsarpong@gmail.com</a>
+    <p style="color:var(--muted);margin-top:12px">Based in Edinburgh, Scotland.</p>
+  </footer>
+</main>
+</body>
+</html>
