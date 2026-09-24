@@ -83,6 +83,19 @@ section h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-.0
 .role-item ul{padding-left:1.1em}
 .role-item li{margin-bottom:6px}
 
+/* Projects */
+.projects{display:grid;gap:40px}
+.proj{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:center}
+.proj .shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);background:#fff}
+.proj .shot img{display:block;width:100%;height:auto}
+.proj h3{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.proj p{margin:0 0 12px}
+.proj .stack{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.proj .plinks{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.proj .plinks a{display:inline-block;font-weight:700;text-decoration:none;border:2px solid var(--link);color:var(--link);padding:5px 14px;border-radius:999px;font-size:.92rem}
+.proj .plinks a.primary{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
+.work .links-inline{margin-top:8px;font-size:.93rem}
+
 /* Research */
 .work{display:grid;gap:36px}
 .work article{border-left:6px solid var(--bar);padding-left:20px;max-width:44em}
@@ -101,6 +114,7 @@ footer h2{font-weight:800;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em
 footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:clamp(1.05rem,3vw,1.4rem);word-break:break-all}
 
 @media (max-width:720px){
+  .proj{grid-template-columns:1fr;gap:16px}
   .hero{padding:52px 0 44px}
   section{padding:48px 0}
   .axis,.row,.role-item{grid-template-columns:1fr;gap:6px}
@@ -173,6 +187,40 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
     </div>
   </section>
 
+  <section id="projects" aria-labelledby="h-projects">
+    <h2 id="h-projects">Projects</h2>
+    <p class="lede">Applied work in Python and R, each built on real data and written up so you can check every number.</p>
+    <div class="projects">
+      <article class="proj">
+        <a class="shot" href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/email-campaign.gif" alt="As a campaign targets high-value customers more strongly, the naive estimate climbs away from the true effect while TMLE stays on it" loading="lazy"></a>
+        <div>
+          <h3>Did the email campaign actually work?</h3>
+          <p>When a campaign targets its best customers, a naive comparison overstated its impact by about 60%. Checked against a randomised experiment on 64,000 customers, AIPW and TMLE, implemented from scratch, recover the true effect with honest confidence intervals.</p>
+          <p class="stack">Python, scikit-learn, causal inference, simulation</p>
+          <ul class="plinks"><li><a href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="shot" href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/bank-targeting.gif" alt="Cumulative gains curve: calling the top-scored 30% of bank clients reaches 75% of subscribers" loading="lazy"></a>
+        <div>
+          <h3>Who should the bank call?</h3>
+          <p>On 41,188 real telemarketing calls, targeting the model's top 30% of clients wins 2.5 times as many term-deposit subscriptions as random calling on the same budget, and keeps 93% of the profit with 70% fewer calls.</p>
+          <p class="stack">Python, XGBoost, random forest, SHAP, business case modelling</p>
+          <ul class="plinks"><li><a href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="shot" href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/boardgame-app.gif" alt="Interactive app predicting a board game's BoardGameGeek rating and what drives it" loading="lazy"></a>
+        <div>
+          <h3>What makes a board game highly rated?</h3>
+          <p>An analysis of 15,249 BoardGameGeek games, with an app that predicts how a new game would be rated. Release year is the strongest predictor, and many popular mechanics lose their advantage once year and length are held constant.</p>
+          <p class="stack">R, tidyverse, glmnet, ranger, Shiny running in the browser</p>
+          <ul class="plinks"><li><a class="primary" href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener">Try the app</a></li><li><a href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section id="research" aria-labelledby="h-research">
     <h2 id="h-research">Research</h2>
     <p class="lede">Methods for separating cause from correlation when you can't run an experiment.</p>
@@ -185,12 +233,13 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
       <article>
         <h3>Targeted Learning in Genomics and Molecular Biomedicine<span class="tag">Under review</span></h3>
         <p class="meta">Co-author, International Journal of Biostatistics</p>
-        <p>Contributed the C-TMLE implementation, integrating it into the open-source Julia package TMLE.jl.</p>
+        <p>Contributed the C-TMLE implementation, integrating it into the open-source Julia package <a href="https://github.com/TARGENE/TMLE.jl" target="_blank" rel="noopener">TMLE.jl</a>.</p>
       </article>
       <article>
         <h3>Benchmarking causal machine learning estimators</h3>
         <p class="meta">Simulation study in R on the Eddie HPC cluster</p>
         <p>A large-scale comparison of TMLE, C-TMLE variants and scalable C-TMLE against GLM and GLMnet baselines under correctly specified and misspecified models, with cross-fitted nuisance models and jackknife inference chosen for its coverage.</p>
+        <p class="links-inline">A related public study: <a href="https://github.com/Asantewaah/causal-inference-simulation" target="_blank" rel="noopener">TMLE and C-TMLE in high-dimensional data (R)</a></p>
       </article>
     </div>
   </section>
