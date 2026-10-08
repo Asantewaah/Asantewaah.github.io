@@ -43,10 +43,15 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;m
 .hero .role{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:clamp(1.15rem,2.4vw,1.5rem);margin:22px 0 18px;max-width:30em}
 .hero .role mark{background:var(--bar);color:var(--bar-ink);padding:0 .25em;border-radius:3px}
 .hero p.intro{max-width:36em;color:var(--band-muted);margin:0 0 28px}
+.hero p.intro a.lab{color:var(--band-ink);text-decoration-color:var(--bar);text-underline-offset:3px}
 .links{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
 .links a{display:inline-block;color:var(--band-ink);text-decoration:none;font-weight:700;border:2px solid var(--band-muted);padding:8px 16px;border-radius:999px}
 .links a:hover{background:var(--band-ink);color:var(--band)}
 .links a.primary{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
+
+/* Portrait beside the hero text */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center}
+.portrait{display:block;width:clamp(180px,24vw,260px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:6px solid var(--bar);background:var(--band-muted)}
 
 /* Section rhythm */
 section{padding:64px 0;border-bottom:1px solid var(--rule)}
@@ -116,6 +121,8 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
 @media (max-width:720px){
   .proj{grid-template-columns:1fr;gap:16px}
   .hero{padding:52px 0 44px}
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .portrait{order:-1;width:136px;border-width:4px}
   section{padding:48px 0}
   .axis,.row,.role-item{grid-template-columns:1fr;gap:6px}
   .axis .spacer{display:none}
@@ -127,16 +134,19 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
 <body>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
     <h1><span>Juliet Asantewaa</span><span>Sarpong</span></h1>
     <p class="role">Data scientist and statistician. I find out <mark>what actually drives results</mark>, not just what moves with them.</p>
-    <p class="intro">Four years turning messy, real-world data into decisions for Microsoft, Unilever, P&amp;G and BIC, from pricing and market analysis to audience and media strategy. Now a PhD researcher in Statistics at the University of Edinburgh, specialising in causal inference, and bringing that rigour to customers, campaigns and clinical data alike.</p>
+    <p class="intro">Four years turning messy, real-world data into decisions for Microsoft, Unilever, P&amp;G and BIC, from pricing and market analysis to audience and media strategy. Now a PhD researcher in Statistics at the University of Edinburgh, in the <a class="lab" href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, specialising in causal inference, and bringing that rigour to customers, campaigns and clinical data alike.</p>
     <ul class="links">
       <li><a class="primary" href="https://drive.google.com/file/d/19Udj4vbUPOkcEvWlCE50g-h4baKusWpa/view?usp=drivesdk" target="_blank" rel="noopener">View my CV</a></li>
       <li><a href="mailto:asantewaahsarpong@gmail.com">Email</a></li>
       <li><a href="https://www.linkedin.com/in/juliet-asantewaa-sarpong" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://github.com/Asantewaah" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
+    </div>
+    <img class="portrait" src="photo.jpg" alt="Portrait of Juliet Asantewaa Sarpong" width="260" height="260">
   </div>
 </header>
 
@@ -236,7 +246,7 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
     <div class="work">
       <article>
         <h3>C-TMLE for causal inference in high-dimensional genomic data</h3>
-        <p class="meta">PhD thesis, University of Edinburgh</p>
+        <p class="meta">PhD thesis, University of Edinburgh. Member of the <a href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, Institute of Genetics and Cancer</p>
         <p>Estimating the causal effects of genetic variants on disease from observational UK Biobank data, including settings where data are missing in non-random ways. The focus is on doubly robust, targeted estimators that stay reliable when models are misspecified.</p>
       </article>
       <article>
