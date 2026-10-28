@@ -89,11 +89,13 @@ section h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-.0
 .role-item li{margin-bottom:6px}
 
 /* Projects */
-.projects{display:grid;gap:40px}
+.projects{display:grid;gap:64px}
 .proj{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:center}
 .proj .shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);background:#fff}
 .proj .shot img{display:block;width:100%;height:auto}
-.proj h3{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.proj h4{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;font-size:1.35rem;font-weight:700;line-height:1.1;margin:0 0 6px}
+.pgroup{display:grid;gap:40px}
+.pgroup > h3{font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-bottom:10px;border-bottom:3px solid var(--bar);justify-self:start}
 .proj p{margin:0 0 12px}
 .proj .stack{color:var(--muted);font-size:.9rem;margin:0 0 12px}
 .proj .plinks{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
@@ -201,10 +203,36 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
     <h2 id="h-projects">Projects</h2>
     <p class="lede">Applied work in Python, R and Julia, each written up so you can check every number.</p>
     <div class="projects">
+      <div class="pgroup">
+        <h3>Health and clinical data</h3>
+      <article class="proj">
+        <a class="shot" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/scotland-admissions-inequalities/main/output/figures/rates_by_quintile_scotland.png" alt="Emergency admission rates by deprivation quintile in Scotland, 2016/17 to 2024/25: the most deprived areas stay at about twice the rate of the least deprived" loading="lazy"></a>
+        <div>
+          <h4>Has the deprivation gap in hospital admissions changed since COVID?</h4>
+          <p>People in Scotland's most deprived areas have about twice as many emergency admissions as those in the least deprived. Using Public Health Scotland open data for every NHS board, I measure that gap four ways and test whether the pandemic shifted it. The gap narrowed from 2.13 to 2.01 times between 2019/20 and 2024/25, at about its pre-pandemic pace, and is now widest in Lothian and Greater Glasgow.</p>
+          <p class="stack">R, tidyverse, slope and relative indexes of inequality, interrupted time series, Shiny running in the browser</p>
+          <ul class="plinks"><li><a class="primary" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener">Explore the dashboard</a></li><li><a href="https://github.com/Asantewaah/scotland-admissions-inequalities" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      </div>
+      <div class="pgroup">
+        <h3>Causal inference methods</h3>
+      <article class="proj">
+        <a class="shot" href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/ctmle-breakdown.gif" alt="As instruments get stronger, estimators that adjust for every covariate scatter while C-TMLE stays close to the true effect" loading="lazy"></a>
+        <div>
+          <h4>When does adjusting for more make things worse?</h4>
+          <p>Covariates that only affect who gets treated make standard causal estimators unstable. Across 500 simulated datasets run on the Eddie HPC cluster, C-TMLE was 2.5 times more accurate than AIPW when those covariates were strong, close to an oracle that knew which covariates mattered.</p>
+          <p class="stack">Julia, TMLE.jl, C-TMLE, Pluto, HPC (SGE array jobs)</p>
+          <ul class="plinks"><li><a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      </div>
+      <div class="pgroup">
+        <h3>Business and consumer analytics</h3>
       <article class="proj">
         <a class="shot" href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/email-campaign.gif" alt="As a campaign targets high-value customers more strongly, the naive estimate climbs away from the true effect while TMLE stays on it" loading="lazy"></a>
         <div>
-          <h3>Did the email campaign actually work?</h3>
+          <h4>Did the email campaign actually work?</h4>
           <p>When a campaign targets its best customers, a naive comparison overstated its impact by about 60%. Checked against a randomised experiment on 64,000 customers, AIPW and TMLE, implemented from scratch, recover the true effect with honest confidence intervals. A causal forest trained only on the targeted data then picks out who responds most, and the experiment confirms its ranking.</p>
           <p class="stack">Python, scikit-learn, EconML, causal inference, simulation</p>
           <ul class="plinks"><li><a href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener">View code</a></li></ul>
@@ -213,30 +241,22 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
       <article class="proj">
         <a class="shot" href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/bank-targeting.gif" alt="Cumulative gains curve: calling the top-scored 30% of bank clients reaches 75% of subscribers" loading="lazy"></a>
         <div>
-          <h3>Who should the bank call?</h3>
-          <p>On 41,188 real telemarketing calls, targeting the model's top 30% of clients wins 2.5 times as many term-deposit subscriptions as random calling on the same budget, and keeps 93% of the profit with 70% fewer calls. Calibrated probabilities forecast a campaign's subscriptions to within about 5% and set a break-even calling rule without hindsight.</p>
-          <p class="stack">Python, XGBoost, random forest, SHAP, probability calibration, business case modelling</p>
+          <h4>Who should the bank call?</h4>
+          <p>On 41,188 real telemarketing calls, targeting the model's top 30% of clients wins 2.5 times as many term-deposit subscriptions as random calling on the same budget, and keeps 93% of the profit with 70% fewer calls. Trained on earlier calls and tested on later ones, the model still reaches a ROC-AUC of 0.74.</p>
+          <p class="stack">Python, XGBoost, random forest, SHAP, out-of-time validation, business case modelling</p>
           <ul class="plinks"><li><a href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener">View code</a></li></ul>
         </div>
       </article>
       <article class="proj">
         <a class="shot" href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/boardgame-app.gif" alt="Interactive app predicting a board game's BoardGameGeek rating and what drives it" loading="lazy"></a>
         <div>
-          <h3>What makes a board game highly rated?</h3>
+          <h4>What makes a board game highly rated?</h4>
           <p>An analysis of 15,249 BoardGameGeek games, with an app that predicts how a new game would be rated. Release year is the strongest predictor, and many popular mechanics lose their advantage once year and length are held constant.</p>
           <p class="stack">R, tidyverse, glmnet, ranger, Shiny running in the browser</p>
           <ul class="plinks"><li><a class="primary" href="https://asantewaah.github.io/boardgame-ratings/" target="_blank" rel="noopener">Try the app</a></li><li><a href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener">View code</a></li></ul>
         </div>
       </article>
-      <article class="proj">
-        <a class="shot" href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/ctmle-breakdown.gif" alt="As instruments get stronger, estimators that adjust for every covariate scatter while C-TMLE stays close to the true effect" loading="lazy"></a>
-        <div>
-          <h3>When does adjusting for more make things worse?</h3>
-          <p>Covariates that only affect who gets treated make standard causal estimators unstable. Across 500 simulated datasets run on the Eddie HPC cluster, C-TMLE was 2.5 times more accurate than AIPW when those covariates were strong, close to an oracle that knew which covariates mattered.</p>
-          <p class="stack">Julia, TMLE.jl, C-TMLE, Pluto, HPC (SGE array jobs)</p>
-          <ul class="plinks"><li><a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
+      </div>
     </div>
   </section>
 
