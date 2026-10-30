@@ -256,7 +256,7 @@ details li{margin-bottom:6px}
 }
 </style>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
@@ -324,7 +324,7 @@ details li{margin-bottom:6px}
   </div>
 </header>
 
-<div class="hero" id="top">
+<div class="hero">
   <div class="wrap hero-grid">
     <div>
       <h1><span>Juliet Asantewaa</span><span class="gold">Sarpong</span></h1>
@@ -635,6 +635,14 @@ details li{margin-bottom:6px}
   document.getElementById('reading-close').addEventListener('click',function(){ close(true); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !panel.hidden) close(true); });
   document.addEventListener('click',function(e){ if(!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target)) close(false); });
+
+  /* The JAS mark always returns to the very top of the page */
+  document.querySelector('.brand').addEventListener('click',function(e){
+    e.preventDefault();
+    var reduce=html.getAttribute('data-motion')==='reduce'||window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+    if(history.replaceState) history.replaceState(null,'',location.pathname+location.search);
+  });
 
   /* Highlight the section in view in the menu */
   var links=[].slice.call(document.querySelectorAll('.nav a'));
