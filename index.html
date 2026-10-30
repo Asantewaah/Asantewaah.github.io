@@ -4,167 +4,470 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Juliet Asantewaa Sarpong · Data scientist and statistician</title>
-<meta name="description" content="Data scientist and statistician with 4+ years of industry experience and PhD research in causal inference at the University of Edinburgh.">
+<meta name="description" content="Data scientist and statistician with 4+ years of industry experience and PhD research in causal inference for health and genomic data at the University of Edinburgh.">
+<meta name="theme-color" content="#0E1F3C">
+<script>
+/* Apply saved reading preferences before the page paints, so there is no flash. */
+(function(){
+  try{
+    var p=JSON.parse(localStorage.getItem('reading-prefs')||'{}'),h=document.documentElement;
+    ['size','theme','contrast','font','motion'].forEach(function(k){ if(p[k]) h.setAttribute('data-'+k,p[k]); });
+  }catch(e){}
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+/* Palette taken from my PhD poster: navy, gold and cream. */
 :root{
-  --paper:#F6F5FB; --ink:#1D1B4C; --muted:#5B5A7E; --rule:#DCDAEC;
-  --link:#2F45C9; --bar:#F2A900; --bar-ink:#1D1B4C; --band:#1D1B4C; --band-ink:#F6F5FB; --band-muted:#B9B7E0;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F9F6EC; --card:#FFFFFF; --ink:#0E1F3C; --muted:#5A5F6E; --rule:#E4DCC6;
+  --link:#8A5A12; --accent:#8A5A12; --gold:#C9A84C; --gold-soft:#F3E9CC; --on-gold:#0E1F3C;
+  --band:#0E1F3C; --band-ink:#F3EEDF; --band-muted:#C8CEDB; --band-gold:#E8C97A;
+  --study:#1F3A6E; --shadow:0 1px 2px rgba(14,31,60,.06),0 8px 24px rgba(14,31,60,.06);
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body-lh:1.65; --ls:normal; --ws:normal;
+  color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#15142E; --ink:#EDECFA; --muted:#A7A5CC; --rule:#2E2C55;
-    --link:#9FAEFF; --band:#232150; --band-ink:#EDECFA; --band-muted:#B9B7E0;
+    --paper:#0B1730; --card:#111F3D; --ink:#F3EEDF; --muted:#B9C0D0; --rule:#26365A;
+    --link:#E8C97A; --accent:#E8C97A; --gold:#C9A84C; --gold-soft:#1B2B4F;
+    --band:#07101F; --study:#9DB4FF; --shadow:none; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#15142E; --ink:#EDECFA; --muted:#A7A5CC; --rule:#2E2C55;
-  --link:#9FAEFF; --band:#232150; --band-ink:#EDECFA; --band-muted:#B9B7E0;
+  --paper:#0B1730; --card:#111F3D; --ink:#F3EEDF; --muted:#B9C0D0; --rule:#26365A;
+  --link:#E8C97A; --accent:#E8C97A; --gold:#C9A84C; --gold-soft:#1B2B4F;
+  --band:#07101F; --study:#9DB4FF; --shadow:none; color-scheme:dark;
 }
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font:400 17px/1.6 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+/* Stronger contrast */
+:root[data-contrast="high"]{
+  --paper:#FFFFFF; --card:#FFFFFF; --ink:#000000; --muted:#1F1F1F; --rule:#000000;
+  --link:#5A3A00; --accent:#5A3A00; --gold-soft:#FFF4D6; --band:#000000; --band-ink:#FFFFFF; --band-muted:#FFFFFF; --band-gold:#FFD35C; --study:#0E1F3C; --shadow:none;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-contrast="high"]:not([data-theme="light"]){
+    --paper:#000000; --card:#000000; --ink:#FFFFFF; --muted:#F0F0F0; --rule:#FFFFFF; --link:#FFD35C; --accent:#FFD35C; --gold-soft:#1A1400; --study:#9DB4FF;
+  }
+}
+:root[data-theme="dark"][data-contrast="high"]{
+  --paper:#000000; --card:#000000; --ink:#FFFFFF; --muted:#F0F0F0; --rule:#FFFFFF; --link:#FFD35C; --accent:#FFD35C; --gold-soft:#1A1400; --study:#9DB4FF;
+}
+:root[data-contrast="high"] a{text-decoration-thickness:2px}
+:root[data-contrast="high"] .card,:root[data-contrast="high"] .degree,:root[data-contrast="high"] .sample{border-width:2px}
+
+/* Larger text */
+:root[data-size="2"]{font-size:112.5%}
+:root[data-size="3"]{font-size:125%}
+/* Easy-read font and spacing */
+:root[data-font="easy"]{--serif:"Atkinson Hyperlegible",system-ui,sans-serif;--sans:"Atkinson Hyperlegible",system-ui,sans-serif;--body-lh:1.8;--ls:.02em;--ws:.08em}
+:root[data-font="easy"] em,:root[data-font="easy"] i{font-style:normal;font-weight:700}
+/* Reduced motion, by choice or by system setting */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+:root[data-motion="reduce"] *,:root[data-motion="reduce"] *::before,:root[data-motion="reduce"] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:7rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:var(--body-lh);letter-spacing:var(--ls);word-spacing:var(--ws)}
 a{color:var(--link);text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:3px solid var(--bar);outline-offset:3px;border-radius:3px}
-h1,h2,h3{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;margin:0;line-height:1.1}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;line-height:1.15;letter-spacing:normal}
+img{max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Hero: indigo band */
-.hero{background:var(--band);color:var(--band-ink);padding:72px 0 64px}
-.hero h1{font-weight:800;font-size:clamp(2.6rem,8vw,5.2rem);letter-spacing:-.025em;line-height:.95}
-.hero h1 span{display:block}
-.hero .role{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;font-size:clamp(1.15rem,2.4vw,1.5rem);margin:22px 0 18px;max-width:30em}
-.hero .role mark{background:var(--bar);color:var(--bar-ink);padding:0 .25em;border-radius:3px}
-.hero p.intro{max-width:36em;color:var(--band-muted);margin:0 0 28px}
-.hero p.intro a.lab{color:var(--band-ink);text-decoration-color:var(--bar);text-underline-offset:3px}
-.links{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
-.links a{display:inline-block;color:var(--band-ink);text-decoration:none;font-weight:700;border:2px solid var(--band-muted);padding:8px 16px;border-radius:999px}
-.links a:hover{background:var(--band-ink);color:var(--band)}
-.links a.primary{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
+/* Skip link */
+.skip{position:absolute;left:16px;top:-100px;z-index:100;background:var(--gold);color:var(--on-gold);font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
 
-/* Portrait beside the hero text */
+/* Header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--gold)}
+.head-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-height:64px}
+@media (max-width:1400px){:root[data-size="3"] .brand .full,:root[data-size="2"][data-font="easy"] .brand .full{display:none}}
+@media (max-width:1180px){:root[data-size="3"] .nav,:root[data-size="2"][data-font="easy"] .nav{order:3;width:100%;margin-left:0}:root[data-size="3"] .reading-btn,:root[data-size="2"][data-font="easy"] .reading-btn{margin-left:auto}:root[data-size="3"] .nav ul,:root[data-size="2"][data-font="easy"] .nav ul{overflow-x:auto}}
+.brand{display:flex;align-items:center;gap:10px;color:var(--band-ink);text-decoration:none;font-family:var(--serif);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.brand .mono{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:2px solid var(--band-gold);color:var(--band-gold);font-size:.85rem;letter-spacing:.04em}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav a{display:block;color:var(--band-ink);text-decoration:none;font-weight:600;font-size:.95rem;padding:8px 12px;border-radius:999px}
+.nav a:hover{background:rgba(232,201,122,.16)}
+.nav a[aria-current="true"]{color:var(--band-gold)}
+.reading-btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:.95rem;color:var(--on-gold);background:var(--band-gold);border:0;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.reading-btn .aa{font-family:var(--serif);font-size:1.05rem;line-height:1}
+
+/* Reading options panel */
+.reading-panel{position:absolute;right:max(16px,calc((100vw - 1080px) / 2 + 24px));top:calc(100% + 8px);width:min(360px,calc(100vw - 32px));background:var(--card);color:var(--ink);border:2px solid var(--gold);border-radius:14px;padding:18px 18px 14px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.reading-panel[hidden]{display:none}
+.reading-panel h2{font-size:1.2rem;margin-bottom:2px}
+.reading-panel .hint{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.reading-panel fieldset{border:0;margin:0 0 12px;padding:0}
+.reading-panel legend{font-weight:700;font-size:.92rem;margin-bottom:6px;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:inline-block;border:2px solid var(--rule);border-radius:999px;padding:5px 12px;font-size:.92rem;font-weight:600;cursor:pointer;background:var(--paper)}
+.seg input:checked+span{background:var(--band);color:var(--band-ink);border-color:var(--band)}
+:root[data-theme="dark"] .seg input:checked+span{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg input:checked+span{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}}
+.seg input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.panel-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:10px;margin-top:4px}
+.panel-foot button{font:inherit;font-weight:700;font-size:.92rem;background:none;border:0;color:var(--link);cursor:pointer;padding:6px 4px;text-decoration:underline;text-underline-offset:3px}
+
+/* Hero, styled like the poster header */
+.hero{background:var(--band);color:var(--band-ink);padding:72px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:linear-gradient(90deg,var(--gold),var(--band-gold),var(--gold))}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center}
-.portrait{display:block;width:clamp(180px,24vw,260px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:6px solid var(--bar);background:var(--band-muted)}
+.hero h1{font-weight:800;font-size:clamp(2.5rem,7vw,4.6rem);letter-spacing:-.01em;line-height:1}
+.hero h1 span{display:block}
+.hero h1 .gold{color:var(--band-gold);font-style:italic;font-weight:700}
+.hero .role{font-size:clamp(1.15rem,2.3vw,1.45rem);font-weight:600;margin:22px 0 16px;max-width:32em}
+.hero .role mark{background:none;color:var(--band-gold);border-bottom:3px solid var(--gold);padding:0 .05em}
+.hero p.intro{max-width:38em;color:var(--band-muted);margin:0 0 22px}
+.hero p.intro a{color:var(--band-ink);text-decoration-color:var(--gold)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 26px;padding:0}
+.badges li{border:1.5px solid var(--gold);color:var(--band-gold);border-radius:6px;padding:3px 10px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.links{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
+.links a{display:inline-block;color:var(--band-ink);text-decoration:none;font-weight:700;border:2px solid var(--band-muted);padding:8px 18px;border-radius:999px}
+.links a:hover{background:var(--band-ink);color:var(--band)}
+.links a.primary{background:var(--band-gold);border-color:var(--band-gold);color:var(--on-gold)}
+.portrait{display:block;width:clamp(180px,24vw,260px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:6px solid var(--gold);background:var(--band-muted)}
 
-/* Section rhythm */
-section{padding:64px 0;border-bottom:1px solid var(--rule)}
-section h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-.015em;margin-bottom:8px}
-.lede{color:var(--muted);max-width:40em;margin:0 0 32px}
+/* Sections, numbered like the poster panels */
+section{padding:72px 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.num{display:grid;place-items:center;flex:none;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--gold);color:var(--on-gold);font-family:var(--sans);font-weight:700;font-size:1rem}
+.sec-head h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.5rem)}
+.lede{color:var(--muted);max-width:42em;margin:6px 0 36px}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
 
-/* Signature: career as a forest plot */
-.plot{position:relative}
-.axis,.row{display:grid;grid-template-columns:190px 1fr;gap:16px;align-items:center}
+/* Buttons */
+.btns{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.btns a{display:inline-block;font-weight:700;text-decoration:none;border:2px solid var(--ink);color:var(--ink);padding:5px 14px;border-radius:999px;font-size:.95rem}
+.btns a:hover{background:var(--ink);color:var(--paper)}
+.btns a.primary{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.btns a.primary:hover{filter:brightness(1.07)}
+.btns .size{font-weight:400;opacity:.85}
+
+/* Cards with an image, used for projects, theses and the poster */
+.sample{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.sample+.sample{margin-top:28px}
+.sample figure{margin:0}
+.sample .shot{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--rule);background:#fff}
+.sample .shot img{display:block;width:100%}
+.sample .shot.poster img{aspect-ratio:4/3;object-fit:cover;object-position:top}
+.sample figcaption{color:var(--muted);font-size:.88rem;margin-top:8px}
+.sample h3,.sample h4{font-size:1.4rem;font-weight:700;margin-bottom:8px}
+.sample p{margin:0 0 12px}
+.meta{color:var(--muted);font-size:.92rem;margin:0 0 12px}
+.stack{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+.plain{border-left:4px solid var(--gold);background:var(--gold-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:0 0 12px}
+.plain strong{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+details{margin:0 0 14px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;font-weight:700;padding:10px 0;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:50%;border:2px solid var(--gold);font-weight:700;line-height:1;flex:none}
+details[open] summary::before{content:"\2212"}
+details ul{margin:0 0 12px;padding-left:1.2em}
+details li{margin-bottom:6px}
+
+/* Project groups */
+.pgroup+.pgroup{margin-top:56px}
+.pgroup>h3{display:inline-block;font-family:var(--sans);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:3px solid var(--gold);margin-bottom:24px}
+
+/* Research list */
+.work{display:grid;gap:32px;margin-top:40px}
+.work article{border-left:6px solid var(--gold);padding-left:20px;max-width:46em}
+.work h3{font-size:1.35rem;font-weight:700;margin-bottom:4px}
+.work .meta{margin:0 0 8px}
+.work p{margin:0}
+.tag{display:inline-block;font-family:var(--sans);font-size:.78rem;font-weight:700;border:1.5px solid currentColor;padding:1px 9px;border-radius:999px;margin-left:8px;vertical-align:3px;color:var(--accent)}
+.links-inline{margin-top:8px!important;font-size:.95rem}
+
+/* Experience: career as a forest plot */
+.legend{display:flex;gap:20px;font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.legend span::before{content:"";display:inline-block;width:18px;height:10px;border-radius:5px;margin-right:6px;background:var(--gold)}
+.legend span.s::before{background:var(--study)}
+.axis,.row{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center}
 .row{padding:10px 0;border-top:1px dashed var(--rule)}
 .row .who{font-weight:700;line-height:1.25}
 .row .who small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
 .track{position:relative;height:22px;background:repeating-linear-gradient(90deg,transparent 0 calc(9.0909% - 1px),var(--rule) calc(9.0909% - 1px) 9.0909%)}
-.bar{position:absolute;top:5px;height:12px;background:var(--bar);border-radius:6px;transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
-.bar.ongoing{border-radius:6px 0 0 6px;background:linear-gradient(90deg,var(--bar) 70%,transparent)}
-.bar.study{background:var(--link)}
-.bar.study.ongoing{background:linear-gradient(90deg,var(--link) 70%,transparent)}
-.legend{display:flex;gap:20px;font-size:.85rem;color:var(--muted);margin:0 0 12px}
-.legend span::before{content:"";display:inline-block;width:18px;height:10px;border-radius:5px;margin-right:6px;vertical-align:0;background:var(--bar)}
-.legend span.s::before{background:var(--link)}
-.dot{position:absolute;top:3px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bar)}
+.bar{position:absolute;top:5px;height:12px;background:var(--gold);border-radius:6px;transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
+.bar.ongoing{border-radius:6px 0 0 6px;background:linear-gradient(90deg,var(--gold) 70%,transparent)}
+.bar.study{background:var(--study)}
+.bar.study.ongoing{background:linear-gradient(90deg,var(--study) 70%,transparent)}
+.dot{position:absolute;top:3px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--gold)}
 .axis .ticks{position:relative;height:20px;font-size:.8rem;color:var(--muted)}
 .axis .ticks span{position:absolute;transform:translateX(-50%)}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media (prefers-reduced-motion:reduce){.bar{animation:none}}
-
-/* Roles */
 .roles{display:grid;gap:40px;margin-top:48px}
-.role-item{display:grid;grid-template-columns:190px 1fr;gap:16px}
-.role-item .when{color:var(--muted);font-size:.9rem;padding-top:4px}
+.role-item{display:grid;grid-template-columns:200px 1fr;gap:16px}
+.role-item .when{color:var(--muted);font-size:.92rem;padding-top:4px}
 .role-item h3{font-size:1.3rem;font-weight:700;margin-bottom:2px}
 .role-item .org{color:var(--muted);margin:0 0 10px}
-.role-item p,.role-item ul{margin:0 0 8px;max-width:38em}
+.role-item p,.role-item ul{margin:0 0 8px;max-width:40em}
 .role-item ul{padding-left:1.1em}
 .role-item li{margin-bottom:6px}
 
-/* Projects */
-.projects{display:grid;gap:64px}
-.proj{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:center}
-.proj .shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);background:#fff}
-.proj .shot img{display:block;width:100%;height:auto}
-.proj h4{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;font-size:1.35rem;font-weight:700;line-height:1.1;margin:0 0 6px}
-.pgroup{display:grid;gap:40px}
-.pgroup > h3{font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-bottom:10px;border-bottom:3px solid var(--bar);justify-self:start}
-.proj p{margin:0 0 12px}
-.proj .stack{color:var(--muted);font-size:.9rem;margin:0 0 12px}
-.proj .plinks{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
-.proj .plinks a{display:inline-block;font-weight:700;text-decoration:none;border:2px solid var(--link);color:var(--link);padding:5px 14px;border-radius:999px;font-size:.92rem}
-.proj .plinks a.primary{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
-.work .links-inline{margin-top:8px;font-size:.93rem}
+/* Education */
+.degrees{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:56px}
+.degree{background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--gold);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+.degree h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.degree p{margin:0;color:var(--muted);font-size:.95rem}
+.degree .result{color:var(--ink);font-weight:700;margin-top:8px}
+.subhead{font-size:1.5rem;font-weight:700;margin:0 0 6px}
 
-/* Research */
-.work{display:grid;gap:36px}
-.work article{border-left:6px solid var(--bar);padding-left:20px;max-width:44em}
-.work h3{font-size:1.3rem;font-weight:700;margin-bottom:4px}
-.work .meta{color:var(--muted);margin:0 0 8px;font-size:.93rem}
-.work p{margin:0}
-.tag{display:inline-block;font-family:"Atkinson Hyperlegible",sans-serif;font-size:.78rem;font-weight:700;border:1.5px solid currentColor;padding:1px 9px;border-radius:999px;margin-left:8px;vertical-align:3px;color:var(--link)}
-
-/* Toolkit + education */
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px 36px;margin:0}
-.cols dt{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:4px}
+/* Toolkit */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 36px;margin:24px 0 0}
+.cols dt{font-family:var(--serif);font-weight:700;font-size:1.15rem;margin-bottom:4px}
 .cols dd{margin:0;color:var(--muted)}
 
-footer{padding:56px 0 64px}
-footer h2{font-weight:800;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;max-width:14em;margin-bottom:20px}
-footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:clamp(1.05rem,3vw,1.4rem);word-break:break-all}
+/* Contact */
+.contact{background:var(--band);color:var(--band-ink);padding:64px 0 72px;border-top:6px solid var(--gold)}
+.contact h2{font-weight:800;font-size:clamp(1.8rem,5vw,3rem);max-width:15em;margin-bottom:20px}
+.contact h2 em{color:var(--band-gold)}
+.contact a.mail{font-family:var(--serif);font-weight:700;font-size:clamp(1.05rem,3vw,1.5rem);color:var(--band-gold);word-break:break-all}
+.contact p{color:var(--band-muted)}
+.contact .links{margin-top:24px}
 
+@media (max-width:860px){
+  .head-row{flex-wrap:wrap;gap:8px 12px;padding-top:10px;padding-bottom:10px}
+  .nav{order:3;width:100%;margin:0 -8px}
+  .nav ul{overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav a{padding:6px 10px;white-space:nowrap}
+  .reading-btn{margin-left:auto}
+  .reading-panel{right:16px}
+  html{scroll-padding-top:8.5rem}
+}
 @media (max-width:720px){
-  .proj{grid-template-columns:1fr;gap:16px}
-  .hero{padding:52px 0 44px}
+  .hero{padding:48px 0 44px}
   .hero-grid{grid-template-columns:1fr;gap:24px}
-  .portrait{order:-1;width:136px;border-width:4px}
-  section{padding:48px 0}
+  .portrait{order:-1;width:132px;border-width:4px}
+  section{padding:52px 0}
+  .sample{grid-template-columns:1fr;gap:18px;padding:16px}
   .axis,.row,.role-item{grid-template-columns:1fr;gap:6px}
   .axis .spacer{display:none}
-  .roles{gap:32px}
   .axis .ticks span.odd{display:none}
+  .brand .full{display:none}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-    <h1><span>Juliet Asantewaa</span><span>Sarpong</span></h1>
-    <p class="role">Data scientist and statistician. I find out <mark>what actually drives results</mark>, not just what moves with them.</p>
-    <p class="intro">Four years turning messy, real-world data into decisions for Microsoft, Unilever, P&amp;G and BIC, from pricing and market analysis to audience and media strategy. Now a PhD researcher in Statistics at the University of Edinburgh, in the <a class="lab" href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, specialising in causal inference, and bringing that rigour to customers, campaigns and clinical data alike.</p>
-    <ul class="links">
-      <li><a class="primary" href="https://drive.google.com/file/d/17-7jmn0SXUUTq9EjwccrP8H3mZNlyW-_/view?usp=sharing" target="_blank" rel="noopener">View my CV</a></li>
-      <li><a href="mailto:asantewaahsarpong@gmail.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/in/juliet-asantewaa-sarpong" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/Asantewaah" target="_blank" rel="noopener">GitHub</a></li>
-    </ul>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="Juliet Asantewaa Sarpong, back to top"><span class="mono" aria-hidden="true">JAS</span><span class="full">Juliet Asantewaa Sarpong</span></a>
+    <nav class="nav" aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="reading-btn" id="reading-btn" type="button" aria-expanded="false" aria-controls="reading-panel">Reading options <span class="aa" aria-hidden="true">Aa</span></button>
+  </div>
+
+  <div class="reading-panel" id="reading-panel" role="region" aria-labelledby="reading-title" hidden>
+    <h2 id="reading-title">Reading options</h2>
+    <p class="hint">Change how this page looks. Your choices are saved in this browser.</p>
+    <form id="reading-form">
+      <fieldset>
+        <legend>Text size</legend>
+        <div class="seg">
+          <label><input type="radio" name="size" value="1"><span>Standard</span></label>
+          <label><input type="radio" name="size" value="2"><span>Larger</span></label>
+          <label><input type="radio" name="size" value="3"><span>Largest</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Colours</legend>
+        <div class="seg">
+          <label><input type="radio" name="theme" value="auto"><span>Match my device</span></label>
+          <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+          <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Contrast</legend>
+        <div class="seg">
+          <label><input type="radio" name="contrast" value="standard"><span>Standard</span></label>
+          <label><input type="radio" name="contrast" value="high"><span>Stronger</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Font</legend>
+        <div class="seg">
+          <label><input type="radio" name="font" value="standard"><span>Standard</span></label>
+          <label><input type="radio" name="font" value="easy"><span>Easy-read, more spacing</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Animation</legend>
+        <div class="seg">
+          <label><input type="radio" name="motion" value="auto"><span>On</span></label>
+          <label><input type="radio" name="motion" value="reduce"><span>Off</span></label>
+        </div>
+      </fieldset>
+    </form>
+    <div class="panel-foot">
+      <button type="button" id="reading-reset">Reset to default</button>
+      <button type="button" id="reading-close">Close</button>
     </div>
-    <img class="portrait" src="photo.jpg" alt="Portrait of Juliet Asantewaa Sarpong" width="260" height="260">
+    <p class="visually-hidden" id="reading-status" aria-live="polite"></p>
   </div>
 </header>
 
-<main class="wrap">
+<div class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span>Juliet Asantewaa</span><span class="gold">Sarpong</span></h1>
+      <p class="role">Data scientist and statistician. I find out <mark>what actually drives results</mark>, not just what moves with them.</p>
+      <p class="intro">Four years turning messy, real-world data into decisions for Microsoft, Unilever, P&amp;G and BIC, from pricing and market analysis to audience and media strategy. Now a PhD researcher in Statistics at the University of Edinburgh, in the <a href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, specialising in causal inference, and bringing that rigour to customers, campaigns and clinical data alike.</p>
+      <ul class="badges" aria-label="Focus areas">
+        <li>Causal inference</li><li>Health &amp; genomic data</li><li>R · Python · Julia</li>
+      </ul>
+      <ul class="links">
+        <li><a class="primary" href="https://drive.google.com/file/d/17-7jmn0SXUUTq9EjwccrP8H3mZNlyW-_/view?usp=sharing" target="_blank" rel="noopener">View my CV</a></li>
+        <li><a href="mailto:asantewaahsarpong@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/juliet-asantewaa-sarpong" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Asantewaah" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <img class="portrait" src="photo.jpg" alt="Portrait of Juliet Asantewaa Sarpong" width="260" height="260">
+  </div>
+</div>
+
+<main id="main" class="wrap" tabindex="-1">
+
+  <section id="research" aria-labelledby="h-research">
+    <div class="sec-head"><span class="num" aria-hidden="true">1</span><h2 id="h-research">Research</h2></div>
+    <p class="lede">Methods for separating cause from correlation when you can't run an experiment.</p>
+
+    <article class="sample">
+      <figure>
+        <a class="shot poster" href="papers/phd-poster-ld-ctmle.pdf" target="_blank" rel="noopener"><img src="images/phd-poster.jpg" alt="Research poster titled Collaborative Targeted Learning in Genomics, in navy and gold" loading="lazy" width="1100" height="1555"></a>
+        <figcaption>PhD research poster, School of Mathematics, University of Edinburgh.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">PhD work sample · Poster</p>
+        <h3>When linkage disequilibrium challenges causal inference</h3>
+        <p class="meta">Supervisors: Dr Sjoerd Beentjes and Prof Chris Ponting · Advisor: Dr Ava Khamseh</p>
+        <div class="plain"><strong>In plain terms</strong>Nearby DNA variants are inherited together, so it is hard to tell which one actually affects a trait. I test which causal estimators still give honest answers when that happens.</div>
+        <p>Six estimators compared on simulated genotypes (10,000 people, 1,000 variants, 200 replicates per scenario) across strong, moderate and minimal linkage disequilibrium, run as array jobs on the Eddie HPC cluster.</p>
+        <details>
+          <summary>What I found</summary>
+          <ul>
+            <li>Confidence interval coverage depends on how strongly variants are linked, not on how the outcome was generated.</li>
+            <li>Wang-CTMLE performs best under strong and moderate linkage disequilibrium, with C-TMLE₁ and scalable C-TMLE close behind.</li>
+            <li>Standard TMLE underperforms throughout, because it underestimates its own variance rather than because it is biased.</li>
+          </ul>
+        </details>
+        <ul class="btns">
+          <li><a class="primary" href="papers/phd-poster-ld-ctmle.pdf" target="_blank" rel="noopener">View the poster <span class="size">(PDF, 3.7 MB)</span></a></li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="work">
+      <article>
+        <h3>C-TMLE for causal inference in high-dimensional genomic data</h3>
+        <p class="meta">PhD thesis, University of Edinburgh. Member of the <a href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, Institute of Genetics and Cancer</p>
+        <p>Estimating the causal effects of genetic variants on disease from observational UK Biobank data, including settings where data are missing in non-random ways. The focus is on doubly robust, targeted estimators that stay reliable when models are misspecified.</p>
+      </article>
+      <article>
+        <h3>Targeted Learning in Genomics and Molecular Biomedicine<span class="tag">Under review</span></h3>
+        <p class="meta">Co-author, International Journal of Biostatistics</p>
+        <p>Contributed the C-TMLE implementation, integrating it into the open-source Julia package <a href="https://github.com/TARGENE/TMLE.jl" target="_blank" rel="noopener">TMLE.jl</a>.</p>
+      </article>
+      <article>
+        <h3>Benchmarking causal machine learning estimators</h3>
+        <p class="meta">Simulation study in R on the Eddie HPC cluster</p>
+        <p>A large-scale comparison of TMLE, C-TMLE variants and scalable C-TMLE against GLM and GLMnet baselines under correctly specified and misspecified models, with cross-fitted nuisance models and jackknife inference chosen for its coverage.</p>
+        <p class="links-inline">Related public studies: <a href="https://github.com/Asantewaah/causal-inference-simulation" target="_blank" rel="noopener">TMLE and C-TMLE in high-dimensional data (R)</a> and <a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">when adjusting for more hurts (Julia)</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="h-projects">
+    <div class="sec-head"><span class="num" aria-hidden="true">2</span><h2 id="h-projects">Projects</h2></div>
+    <p class="lede">Applied work in Python, R and Julia, each written up so you can check every number.</p>
+
+    <div class="pgroup">
+      <h3>Health and clinical data</h3>
+      <article class="sample">
+        <a class="shot" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/scotland-admissions-inequalities/main/output/figures/rates_by_quintile_scotland.png" alt="Emergency admission rates by deprivation quintile in Scotland, 2016/17 to 2024/25: the most deprived areas stay at about twice the rate of the least deprived" loading="lazy"></a>
+        <div>
+          <h4>Has the deprivation gap in hospital admissions changed since COVID?</h4>
+          <p>People in Scotland's most deprived areas have about twice as many emergency admissions as those in the least deprived. Using Public Health Scotland open data for every NHS board, I measure that gap four ways and test whether the pandemic shifted it. The gap narrowed from 2.13 to 2.01 times between 2019/20 and 2024/25, at about its pre-pandemic pace, and is now widest in Lothian and Greater Glasgow.</p>
+          <p class="stack">R, tidyverse, slope and relative indexes of inequality, interrupted time series, Shiny running in the browser</p>
+          <ul class="btns"><li><a class="primary" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener">Explore the dashboard</a></li><li><a href="https://github.com/Asantewaah/scotland-admissions-inequalities" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="pgroup">
+      <h3>Causal inference methods</h3>
+      <article class="sample">
+        <a class="shot" href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/ctmle-breakdown.gif" alt="As instruments get stronger, estimators that adjust for every covariate scatter while C-TMLE stays close to the true effect" loading="lazy"></a>
+        <div>
+          <h4>When does adjusting for more make things worse?</h4>
+          <p>Covariates that only affect who gets treated make standard causal estimators unstable. Across 500 simulated datasets run on the Eddie HPC cluster, C-TMLE was 2.5 times more accurate than AIPW when those covariates were strong, close to an oracle that knew which covariates mattered.</p>
+          <p class="stack">Julia, TMLE.jl, C-TMLE, Pluto, HPC (SGE array jobs)</p>
+          <ul class="btns"><li><a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="pgroup">
+      <h3>Business and consumer analytics</h3>
+      <article class="sample">
+        <a class="shot" href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/email-campaign.gif" alt="As a campaign targets high-value customers more strongly, the naive estimate climbs away from the true effect while TMLE stays on it" loading="lazy"></a>
+        <div>
+          <h4>Did the email campaign actually work?</h4>
+          <p>When a campaign targets its best customers, a naive comparison overstated its impact by about 60%. Checked against a randomised experiment on 64,000 customers, AIPW and TMLE, implemented from scratch, recover the true effect with honest confidence intervals. A causal forest trained only on the targeted data then picks out who responds most, and the experiment confirms its ranking.</p>
+          <p class="stack">Python, scikit-learn, EconML, causal inference, simulation</p>
+          <ul class="btns"><li><a href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      <article class="sample">
+        <a class="shot" href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/bank-targeting.gif" alt="Cumulative gains curve: calling the top-scored 30% of bank clients reaches 75% of subscribers" loading="lazy"></a>
+        <div>
+          <h4>Who should the bank call?</h4>
+          <p>On 41,188 real telemarketing calls, targeting the model's top 30% of clients wins 2.5 times as many term-deposit subscriptions as random calling on the same budget, and keeps 93% of the profit with 70% fewer calls. Trained on earlier calls and tested on later ones, the model still reaches a ROC-AUC of 0.74.</p>
+          <p class="stack">Python, XGBoost, random forest, SHAP, out-of-time validation, business case modelling</p>
+          <ul class="btns"><li><a href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+      <article class="sample">
+        <a class="shot" href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/boardgame-app.gif" alt="Interactive app predicting a board game's BoardGameGeek rating and what drives it" loading="lazy"></a>
+        <div>
+          <h4>What makes a board game highly rated?</h4>
+          <p>An analysis of 15,249 BoardGameGeek games, with an app that predicts how a new game would be rated. Release year is the strongest predictor, and many popular mechanics lose their advantage once year and length are held constant.</p>
+          <p class="stack">R, tidyverse, glmnet, ranger, Shiny running in the browser</p>
+          <ul class="btns"><li><a class="primary" href="https://asantewaah.github.io/boardgame-ratings/" target="_blank" rel="noopener">Try the app</a></li><li><a href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener">View code</a></li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <section id="experience" aria-labelledby="h-exp">
-    <h2 id="h-exp">Experience</h2>
+    <div class="sec-head"><span class="num" aria-hidden="true">3</span><h2 id="h-exp">Experience</h2></div>
     <p class="lede">My career, plotted the way a statistician would: each bar is a role or degree, from start to finish.</p>
 
     <p class="legend" aria-hidden="true"><span>Work</span><span class="s">Study</span></p>
     <div class="plot" role="img" aria-label="Timeline from 2016 to 2026: BSc Mathematics at KNUST 2016 to 2020; Dentsu internship 2019; Carat 2020 to 2021; Maverick Research 2021 to 2022; Polymorph Labs 2022 to 2023; MSc at AIMS 2023 to 2024; PhD Statistics at the University of Edinburgh from September 2024; tutor from 2025 and PGR ambassador from late 2025, all ongoing.">
       <div class="row"><div class="who">BSc Mathematics<small>KNUST</small></div><div class="track"><span class="bar study" style="left:6.4%;width:34.5%;animation-delay:0.00s"></span></div></div>
       <div class="row"><div class="who">Dentsu<small>Analyst intern</small></div><div class="track"><span class="dot" style="left:31.8%"></span></div></div>
-      <div class="row"><div class="who">Carat<small>Data analyst</small></div><div class="track"><span class="bar " style="left:43.2%;width:9.8%;animation-delay:0.16s"></span></div></div>
-      <div class="row"><div class="who">Maverick Research<small>Data scientist</small></div><div class="track"><span class="bar " style="left:53.0%;width:6.8%;animation-delay:0.24s"></span></div></div>
-      <div class="row"><div class="who">Polymorph Labs<small>Project supervisor</small></div><div class="track"><span class="bar " style="left:60.6%;width:5.3%;animation-delay:0.32s"></span></div></div>
+      <div class="row"><div class="who">Carat<small>Data analyst</small></div><div class="track"><span class="bar" style="left:43.2%;width:9.8%;animation-delay:0.16s"></span></div></div>
+      <div class="row"><div class="who">Maverick Research<small>Data scientist</small></div><div class="track"><span class="bar" style="left:53.0%;width:6.8%;animation-delay:0.24s"></span></div></div>
+      <div class="row"><div class="who">Polymorph Labs<small>Project supervisor</small></div><div class="track"><span class="bar" style="left:60.6%;width:5.3%;animation-delay:0.32s"></span></div></div>
       <div class="row"><div class="who">MSc Mathematical Sciences<small>AIMS</small></div><div class="track"><span class="bar study" style="left:69.1%;width:9.1%;animation-delay:0.40s"></span></div></div>
       <div class="row"><div class="who">PhD Statistics<small>University of Edinburgh</small></div><div class="track"><span class="bar study ongoing" style="left:78.8%;width:21.2%;animation-delay:0.48s"></span></div></div>
       <div class="row"><div class="who">Tutor<small>University of Edinburgh</small></div><div class="track"><span class="bar ongoing" style="left:81.8%;width:18.2%;animation-delay:0.56s"></span></div></div>
@@ -199,93 +502,81 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
     </div>
   </section>
 
-  <section id="projects" aria-labelledby="h-projects">
-    <h2 id="h-projects">Projects</h2>
-    <p class="lede">Applied work in Python, R and Julia, each written up so you can check every number.</p>
-    <div class="projects">
-      <div class="pgroup">
-        <h3>Health and clinical data</h3>
-      <article class="proj">
-        <a class="shot" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/scotland-admissions-inequalities/main/output/figures/rates_by_quintile_scotland.png" alt="Emergency admission rates by deprivation quintile in Scotland, 2016/17 to 2024/25: the most deprived areas stay at about twice the rate of the least deprived" loading="lazy"></a>
-        <div>
-          <h4>Has the deprivation gap in hospital admissions changed since COVID?</h4>
-          <p>People in Scotland's most deprived areas have about twice as many emergency admissions as those in the least deprived. Using Public Health Scotland open data for every NHS board, I measure that gap four ways and test whether the pandemic shifted it. The gap narrowed from 2.13 to 2.01 times between 2019/20 and 2024/25, at about its pre-pandemic pace, and is now widest in Lothian and Greater Glasgow.</p>
-          <p class="stack">R, tidyverse, slope and relative indexes of inequality, interrupted time series, Shiny running in the browser</p>
-          <ul class="plinks"><li><a class="primary" href="https://asantewaah.github.io/scotland-admissions-inequalities/" target="_blank" rel="noopener">Explore the dashboard</a></li><li><a href="https://github.com/Asantewaah/scotland-admissions-inequalities" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
-      </div>
-      <div class="pgroup">
-        <h3>Causal inference methods</h3>
-      <article class="proj">
-        <a class="shot" href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/ctmle-breakdown.gif" alt="As instruments get stronger, estimators that adjust for every covariate scatter while C-TMLE stays close to the true effect" loading="lazy"></a>
-        <div>
-          <h4>When does adjusting for more make things worse?</h4>
-          <p>Covariates that only affect who gets treated make standard causal estimators unstable. Across 500 simulated datasets run on the Eddie HPC cluster, C-TMLE was 2.5 times more accurate than AIPW when those covariates were strong, close to an oracle that knew which covariates mattered.</p>
-          <p class="stack">Julia, TMLE.jl, C-TMLE, Pluto, HPC (SGE array jobs)</p>
-          <ul class="plinks"><li><a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
-      </div>
-      <div class="pgroup">
-        <h3>Business and consumer analytics</h3>
-      <article class="proj">
-        <a class="shot" href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/email-campaign.gif" alt="As a campaign targets high-value customers more strongly, the naive estimate climbs away from the true effect while TMLE stays on it" loading="lazy"></a>
-        <div>
-          <h4>Did the email campaign actually work?</h4>
-          <p>When a campaign targets its best customers, a naive comparison overstated its impact by about 60%. Checked against a randomised experiment on 64,000 customers, AIPW and TMLE, implemented from scratch, recover the true effect with honest confidence intervals. A causal forest trained only on the targeted data then picks out who responds most, and the experiment confirms its ranking.</p>
-          <p class="stack">Python, scikit-learn, EconML, causal inference, simulation</p>
-          <ul class="plinks"><li><a href="https://github.com/Asantewaah/email-campaign-causal-impact" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
-      <article class="proj">
-        <a class="shot" href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/bank-targeting.gif" alt="Cumulative gains curve: calling the top-scored 30% of bank clients reaches 75% of subscribers" loading="lazy"></a>
-        <div>
-          <h4>Who should the bank call?</h4>
-          <p>On 41,188 real telemarketing calls, targeting the model's top 30% of clients wins 2.5 times as many term-deposit subscriptions as random calling on the same budget, and keeps 93% of the profit with 70% fewer calls. Trained on earlier calls and tested on later ones, the model still reaches a ROC-AUC of 0.74.</p>
-          <p class="stack">Python, XGBoost, random forest, SHAP, out-of-time validation, business case modelling</p>
-          <ul class="plinks"><li><a href="https://github.com/Asantewaah/marketing-financial-analytics" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
-      <article class="proj">
-        <a class="shot" href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Asantewaah/Asantewaah/main/assets/boardgame-app.gif" alt="Interactive app predicting a board game's BoardGameGeek rating and what drives it" loading="lazy"></a>
-        <div>
-          <h4>What makes a board game highly rated?</h4>
-          <p>An analysis of 15,249 BoardGameGeek games, with an app that predicts how a new game would be rated. Release year is the strongest predictor, and many popular mechanics lose their advantage once year and length are held constant.</p>
-          <p class="stack">R, tidyverse, glmnet, ranger, Shiny running in the browser</p>
-          <ul class="plinks"><li><a class="primary" href="https://asantewaah.github.io/boardgame-ratings/" target="_blank" rel="noopener">Try the app</a></li><li><a href="https://github.com/Asantewaah/boardgame-ratings" target="_blank" rel="noopener">View code</a></li></ul>
-        </div>
-      </article>
-      </div>
-    </div>
-  </section>
+  <section id="education" aria-labelledby="h-edu">
+    <div class="sec-head"><span class="num" aria-hidden="true">4</span><h2 id="h-edu">Education and theses</h2></div>
+    <p class="lede">From modelling the heart's electrical signal, to the question my PhD now builds on: how to estimate a causal effect without trusting a wrong model.</p>
 
-  <section id="research" aria-labelledby="h-research">
-    <h2 id="h-research">Research</h2>
-    <p class="lede">Methods for separating cause from correlation when you can't run an experiment.</p>
-    <div class="work">
-      <article>
-        <h3>C-TMLE for causal inference in high-dimensional genomic data</h3>
-        <p class="meta">PhD thesis, University of Edinburgh. Member of the <a href="https://institute-genetics-cancer.ed.ac.uk/research/research-groups-a-z/sjoerd-beentjes-affiliate" target="_blank" rel="noopener">Khamseh &amp; Beentjes Lab</a>, Institute of Genetics and Cancer</p>
-        <p>Estimating the causal effects of genetic variants on disease from observational UK Biobank data, including settings where data are missing in non-random ways. The focus is on doubly robust, targeted estimators that stay reliable when models are misspecified.</p>
-      </article>
-      <article>
-        <h3>Targeted Learning in Genomics and Molecular Biomedicine<span class="tag">Under review</span></h3>
-        <p class="meta">Co-author, International Journal of Biostatistics</p>
-        <p>Contributed the C-TMLE implementation, integrating it into the open-source Julia package <a href="https://github.com/TARGENE/TMLE.jl" target="_blank" rel="noopener">TMLE.jl</a>.</p>
-      </article>
-      <article>
-        <h3>Benchmarking causal machine learning estimators</h3>
-        <p class="meta">Simulation study in R on the Eddie HPC cluster</p>
-        <p>A large-scale comparison of TMLE, C-TMLE variants and scalable C-TMLE against GLM and GLMnet baselines under correctly specified and misspecified models, with cross-fitted nuisance models and jackknife inference chosen for its coverage.</p>
-        <p class="links-inline">Related public studies: <a href="https://github.com/Asantewaah/causal-inference-simulation" target="_blank" rel="noopener">TMLE and C-TMLE in high-dimensional data (R)</a> and <a href="https://github.com/Asantewaah/ctmle-breakdown" target="_blank" rel="noopener">when adjusting for more hurts (Julia)</a></p>
-      </article>
+    <div class="degrees">
+      <div class="degree">
+        <h3>PhD Statistics</h3>
+        <p>University of Edinburgh · September 2024 – present</p>
+        <p class="result">School of Mathematics funding package</p>
+      </div>
+      <div class="degree">
+        <h3>MSc Mathematical Sciences</h3>
+        <p>African Institute for Mathematical Sciences, Ghana · 2023 – 2024</p>
+        <p class="result">Bending Spoons Scholar</p>
+      </div>
+      <div class="degree">
+        <h3>BSc Mathematics</h3>
+        <p>Kwame Nkrumah University of Science and Technology · 2016 – 2020</p>
+        <p class="result">First Class · Ato-Dadzie Foundation Scholar</p>
+      </div>
     </div>
+
+    <article class="sample" aria-labelledby="t-msc">
+      <figure>
+        <a class="shot" href="papers/msc-thesis-aims-2024.pdf" target="_blank" rel="noopener"><img src="images/msc-coverage.png" alt="Line chart of confidence interval coverage against log sample size for five estimators. One-step estimation stays near 0.95 at every sample size; IPW, OLS and then TMLE fall towards zero as samples grow." loading="lazy" width="954" height="543"></a>
+        <figcaption>From the thesis: one-step estimation (blue) keeps close to 95% coverage as samples grow, while the other estimators fall away.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">MSc thesis · AIMS Ghana · June 2024</p>
+        <h3 id="t-msc">Semiparametric estimation techniques protect against model misspecification bias</h3>
+        <p class="meta">Supervisor: Dr Sjoerd Beentjes · 46 pages · R</p>
+        <div class="plain"><strong>In plain terms</strong>If a statistical model makes the wrong assumptions, its estimate of a treatment's effect can be confidently wrong. I tested whether newer "semiparametric" methods avoid that trap, first on simulated data where the true answer was known, then on a real public health trial.</div>
+        <details>
+          <summary>Methods and findings</summary>
+          <ul>
+            <li>Compared three traditional estimators (difference in means, linear regression and inverse probability weighting) with two semiparametric ones: one-step estimation and targeted maximum likelihood estimation (TMLE).</li>
+            <li>In simulation, one-step estimation had the lowest bias at every sample size and kept coverage close to 95%. Coverage for regression and weighting collapsed towards zero as samples grew.</li>
+            <li>TMLE beat the traditional estimators on variance but kept a small bias and lost coverage in large samples. I traced this to fitting the models and the targeting step on the same data, which cross-validated TMLE is designed to fix.</li>
+            <li>On data from the WASH Benefits Bangladesh trial (water, sanitation, handwashing and nutrition interventions and child growth), the two semiparametric methods gave confidence intervals about half as wide as the traditional ones.</li>
+          </ul>
+        </details>
+        <ul class="btns">
+          <li><a class="primary" href="papers/msc-thesis-aims-2024.pdf" target="_blank" rel="noopener">Read the thesis <span class="size">(PDF, 2.8 MB)</span></a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="sample" aria-labelledby="t-bsc">
+      <figure>
+        <a class="shot" href="papers/bsc-thesis-knust-2020.pdf" target="_blank" rel="noopener"><img src="images/bsc-fhn.png" alt="Line chart titled Numerical Solution of the FHN Model, showing v(t) rising to a peak near 0.4 and falling back, while w(t) rises later towards 0.66" loading="lazy" width="975" height="740"></a>
+        <figcaption>From the thesis: the solution of the FitzHugh–Nagumo model, with the fast variable v(t) and the slower recovery variable w(t).</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">BSc thesis · KNUST · May 2020</p>
+        <h3 id="t-bsc">Solving the FitzHugh–Nagumo model with Python</h3>
+        <p class="meta">Supervisor: Dr Gaston E. Awashie · Group thesis with Jennifer Owusua Debrah, Fritz Effah Amoakohene and Emmanuel Korsah · 52 pages · Python</p>
+        <div class="plain"><strong>In plain terms</strong>Many sudden cardiac deaths are caused by a breakdown in the electrical signal that keeps the heart beating. The FitzHugh–Nagumo model describes that signal with two equations. We reviewed how the heart's electrical activity is modelled, then solved the model numerically in Python.</div>
+        <details>
+          <summary>Methods and findings</summary>
+          <ul>
+            <li>Reviewed models of cardiac electrical activity, from the detailed ionic models (Hodgkin–Huxley, Luo–Rudy, Fox) to simpler ones (FitzHugh–Nagumo, Aliev–Panfilov).</li>
+            <li>Covered the numerical methods behind the solution: Euler, Runge–Kutta, finite differences and Newton–Raphson.</li>
+            <li>Solved the two-equation system with SciPy's ODEINT and plotted how the shape, amplitude and timing of the signal evolve.</li>
+          </ul>
+        </details>
+        <ul class="btns">
+          <li><a class="primary" href="papers/bsc-thesis-knust-2020.pdf" target="_blank" rel="noopener">Read the thesis <span class="size">(PDF, 0.8 MB)</span></a></li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <section id="skills" aria-labelledby="h-skills">
-    <h2 id="h-skills">Toolkit</h2>
-    <dl class="cols" style="margin-top:24px">
+    <div class="sec-head"><span class="num" aria-hidden="true">5</span><h2 id="h-skills">Toolkit</h2></div>
+    <dl class="cols">
       <div><dt>Methods</dt><dd>Causal inference, statistical modelling, machine learning, market and audience analysis</dd></div>
       <div><dt>Languages</dt><dd>R, Python, Julia, SQL</dd></div>
       <div><dt>Visualisation</dt><dd>Tableau, Power BI, Looker</dd></div>
@@ -293,25 +584,69 @@ footer a.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight
     </dl>
   </section>
 
-  <section id="education" aria-labelledby="h-edu">
-    <h2 id="h-edu">Education</h2>
-    <dl class="cols" style="margin-top:24px">
-      <div><dt>PhD Statistics</dt><dd>University of Edinburgh, September 2024 – present. School of Mathematics funding package.</dd></div>
-      <div><dt>MSc Mathematical Sciences</dt><dd>African Institute for Mathematical Sciences, 2023 – 2024. Bending Spoons Scholar.</dd></div>
-      <div><dt>BSc Mathematics, First Class</dt><dd>Kwame Nkrumah University of Science and Technology, 2016 – 2020. Ato-Dadzie Foundation Scholar.</dd></div>
-    </dl>
-  </section>
-
-  <section id="outside" aria-labelledby="h-out">
-    <h2 id="h-out">Outside work</h2>
+  <section id="outside" aria-labelledby="h-out" style="border-bottom:0">
+    <div class="sec-head"><span class="num" aria-hidden="true">6</span><h2 id="h-out">Outside work</h2></div>
     <p class="lede" style="margin-bottom:0">I'm usually at a table somewhere: playing tabletop RPGs like the Cosmere RPG and City of Mist, or working through a stack of board games. The rest of the time I'm reading, comic books very much included, and I review most of what I read on Goodreads.</p>
   </section>
-
-  <footer>
-    <h2>Open to senior data science and analytics roles across industries.</h2>
-    <a class="mail" href="mailto:asantewaahsarpong@gmail.com">asantewaahsarpong@gmail.com</a>
-    <p style="color:var(--muted);margin-top:12px">Based in Edinburgh, Scotland.</p>
-  </footer>
 </main>
+
+<footer class="contact" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <h2 id="h-contact">Open to senior data science and analytics roles <em>across industries.</em></h2>
+    <a class="mail" href="mailto:asantewaahsarpong@gmail.com">asantewaahsarpong@gmail.com</a>
+    <p>Based in Edinburgh, Scotland.</p>
+    <ul class="links">
+      <li><a class="primary" href="https://drive.google.com/file/d/17-7jmn0SXUUTq9EjwccrP8H3mZNlyW-_/view?usp=sharing" target="_blank" rel="noopener">View my CV</a></li>
+      <li><a href="https://www.linkedin.com/in/juliet-asantewaa-sarpong" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/Asantewaah" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='reading-prefs', html=document.documentElement;
+  var defaults={size:'1',theme:'auto',contrast:'standard',font:'standard',motion:'auto'};
+  var btn=document.getElementById('reading-btn'), panel=document.getElementById('reading-panel');
+  var form=document.getElementById('reading-form'), status=document.getElementById('reading-status');
+
+  function load(){ try{ return Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}')); }catch(e){ return Object.assign({},defaults); } }
+  function save(p){ try{ localStorage.setItem(KEY,JSON.stringify(p)); }catch(e){} }
+  function apply(p){
+    Object.keys(defaults).forEach(function(k){
+      if(p[k]===defaults[k]) html.removeAttribute('data-'+k); else html.setAttribute('data-'+k,p[k]);
+      var input=form.querySelector('input[name="'+k+'"][value="'+p[k]+'"]'); if(input) input.checked=true;
+    });
+  }
+  var prefs=load(); apply(prefs);
+
+  form.addEventListener('change',function(e){
+    prefs[e.target.name]=e.target.value; apply(prefs); save(prefs);
+    status.textContent='Reading options updated.';
+  });
+  document.getElementById('reading-reset').addEventListener('click',function(){
+    prefs=Object.assign({},defaults); apply(prefs); save(prefs);
+    status.textContent='Reading options reset to default.';
+  });
+
+  function open(){ panel.hidden=false; btn.setAttribute('aria-expanded','true'); var c=form.querySelector('input:checked'); if(c) c.focus(); }
+  function close(returnFocus){ panel.hidden=true; btn.setAttribute('aria-expanded','false'); if(returnFocus) btn.focus(); }
+  btn.addEventListener('click',function(){ panel.hidden?open():close(false); });
+  document.getElementById('reading-close').addEventListener('click',function(){ close(true); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !panel.hidden) close(true); });
+  document.addEventListener('click',function(e){ if(!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target)) close(false); });
+
+  /* Highlight the section in view in the menu */
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ links.forEach(function(a){ a.toggleAttribute('aria-current', a.getAttribute('href')==='#'+en.target.id); if(a.hasAttribute('aria-current')) a.setAttribute('aria-current','true'); }); }
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    ['research','projects','experience','education','contact'].forEach(function(id){ var el=document.getElementById(id); if(el) io.observe(el); });
+  }
+})();
+</script>
 </body>
 </html>
